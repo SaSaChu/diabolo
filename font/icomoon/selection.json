@@ -1,12 +1,39 @@
 {
   "IcoMoonType": "selection",
-  "icons": [],
+  "icons": [
+    {
+      "icon": {
+        "paths": [
+          "M798.133 609.867l-256-256c-16.533-16.533-43.733-16.533-60.267 0l-256 256c-16.533 16.533-16.533 43.733 0 60.267s43.733 16.533 60.267 0l225.867-225.867 225.867 225.867c8.267 8.267 19.2 12.533 30.133 12.533s21.867-4.267 30.133-12.533c16.8-16.533 16.8-43.733 0-60.267z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "chevron-up"
+        ],
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "id": 36,
+        "order": 90,
+        "prevSize": 24,
+        "code": 59665,
+        "name": "chevron-up"
+      },
+      "setIdx": 11,
+      "setId": 5,
+      "iconIdx": 35
+    }
+  ],
   "height": 1024,
   "metadata": {
     "name": "icomoon"
   },
   "preferences": {
     "showGlyphs": true,
+    "showCodes": true,
     "showQuickUse": true,
     "showQuickUse2": true,
     "showSVGs": true,
@@ -30,8 +57,7 @@
       "bgColor": 16777215,
       "classSelector": ".icon"
     },
-    "historySize": 100,
-    "showCodes": true,
+    "historySize": 50,
     "gridSize": 16
   }
 }
