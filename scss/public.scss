@@ -72,8 +72,43 @@ header {
       width: calc(100% - 300px);
       float: left;
       @include clearfix();
-      
-      > a {
+
+      > span {
+        width: 126px;
+        position: relative;
+
+        div {display: none;}
+
+        &:hover {
+          > div {
+            display: block;
+            width: 126px;
+            background-color: rgba(197, 27, 41, 1.00);
+            margin-left: -30px;
+
+            > a {
+              display: block;
+              width: 100%;
+              height: 50px;
+              line-height: 50px;
+              font-size: 16px;
+              float: none;
+              padding-left: 16px;
+              text-align: left;
+              color: rgba(195, 195, 195, 1.00);
+              text-decoration: none;
+
+              &:hover {
+                background-color: rgba(148, 22, 32, 1.00);
+              }
+
+              @include transition(background-color .3s);        
+            }
+          }
+        }
+      }
+
+      > span, > a {
         display: inline-block;
         cursor: pointer;
         float: right;
@@ -102,9 +137,136 @@ header {
   }
 }
 
-.banner {}
+.banner {
+  display: inline-block;
+  width: 100%;
+  height: 400px;
+  background-color: rgba(0, 128, 0, 0.2);
+}
 
-.cent {}
+.cent {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 50px 0; 
+
+  .cent_box {
+    display: inline-block;
+    width: 100%;
+    max-width: 1120px;
+    @include clearfix();
+    
+    .cent_list_box {
+      display: inline-block;
+      width: calc(100% - 325px);
+      float: left;
+      padding-right: 50px;
+
+      .list_title_box, .list_box {
+        display: inline-block;
+        width: 100%;
+      }
+
+      .list_title_box {
+        padding: 20px 0;
+        @include clearfix();
+        
+        span {
+          display: inline-block;
+          float: left;
+          font-size: 24px;
+          color: rgba(197, 27, 42, 1.00);
+          font-weight: 600;
+        }
+
+        a {
+          display: inline-block;
+          cursor: pointer;
+          float: right;
+          font-size: 18px;
+          font-weight: 600;
+          color: white;
+          padding: 5px 15px;
+          text-decoration: none;
+          background-color: rgba(196, 152, 214, 1.00);
+          @include border-radius(3px);
+          @include transition(all .3s);
+          
+          &:hover, &:active {
+            background-color: rgba(196, 152, 214, .8);
+          }
+        }
+      }
+
+      .list_box {
+        @include box-shadow(0 0 10px rgba(136, 136, 136, .2));
+
+        a {
+          display: inline-block;
+          cursor: pointer;
+          width: 100%;
+          background-color: rgba(255, 255, 255, 1.00);
+          padding: 20px 50px;
+          border-bottom: 1px solid rgba(215, 215, 215, 1.00);
+          @include clearfix();
+          @include transition(all .3s);
+          
+          text-align: left;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+
+          &:hover, &:active {
+            background-color: rgba(235, 235, 235, 1.00);
+
+            .date {color: rgba(197, 27, 42, 1.00);}
+            .type_box {
+              p {
+                color: rgba(197, 27, 42, 1.00);
+              }
+            }  
+          }
+
+          .date {
+            display: inline-block;
+            width: 120px;
+            float: left;
+            color: black;
+          }
+
+          .type_box {
+            display: inline-block;
+            width: calc(100% - 120px);
+            float: left;
+
+            p {
+              display: inline-block;
+              width: 100%;
+              padding: 0;
+              margin: 0;
+              color: black;
+              font-size: 14px;
+
+              &:first-child {
+                font-size: 18px;
+                font-weight: 600;
+                padding-bottom: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .fb_box {
+      display: inline-block;
+      width: 325px;
+      float: left;
+      border: 5px solid white;
+    }
+  }
+}
 
 footer {
   display: inline-block;
