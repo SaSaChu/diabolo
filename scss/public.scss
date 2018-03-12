@@ -33,8 +33,7 @@ html {
     font-size: medium;
     font-family: Helvetica, Arial, sans-serif, "微軟正黑體", "Microsoft JhengHei";
 
-    background: rgba(242, 242, 242, 1.00);
-    background-image: $mainBackgroundImage;
+    background: rgba(241, 241, 241, .5);
 
     @include font-smoothing(antialiased);
   }
@@ -52,6 +51,10 @@ header {
     width: 100%;
     max-width: 1120px;
     @include clearfix();
+
+    @include range-width(0, 1030px) {
+      padding: 0 10px;
+    }
     
     .logo_boxs {
       display: inline-block;
@@ -61,17 +64,26 @@ header {
       padding-top: 20px;
       float: left;
 
+      @include range-width(0, 735px) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
       img {
         width: 100%;
         max-width: 300px;
       }
     }
 
-    .menu_boxs {
+    .nav_boxs {
       display: inline-block;
       width: calc(100% - 300px);
       float: left;
       @include clearfix();
+
+      @include range-width(0, 735px) {
+        display: none;
+      }
 
       > span {
         width: 126px;
@@ -95,7 +107,7 @@ header {
               float: none;
               padding-left: 16px;
               text-align: left;
-              color: rgba(195, 195, 195, 1.00);
+              color: white;
               text-decoration: none;
 
               &:hover {
@@ -134,8 +146,212 @@ header {
         }
       }
     }
+
+    .menu_boxs {
+      @include range-width(0, 735px) {
+        display: inline-block;
+      }
+
+      display: none;
+      float: right;
+      padding-top: 28px;
+
+      @include range-width(0, 450px) {
+        padding-top: 18px;
+      }
+
+      #nav-icon3 {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        // margin: 50px auto;
+        @include rotate(0deg);
+        @include transition(all .5s ease-in-out);
+
+        @include range-width(0, 450px) {
+          width: 25px;
+          height: 25px;
+        }
+
+        span {
+          display: block;
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          background: black;
+          
+          left: 0;
+          @include opacity(1);
+          @include rotate(0deg);
+          @include transition(all .25s ease-in-out);
+          
+
+          &:nth-child(1) {
+            top: 0px;
+          }
+
+          &:nth-child(2), &:nth-child(3) {
+            top: 10px;
+          }
+
+          &:nth-child(4) {
+            top: 20px;
+          }
+          @include range-width(0, 450px) {
+            &:nth-child(1) {
+              top: 3px;
+            }
+
+            &:nth-child(2), &:nth-child(3) {
+              top: 10px;
+            }
+
+            &:nth-child(4) {
+              top: 20px - 3px;
+            }
+          }
+        }
+
+        &.open {
+          span {
+            &:nth-child(1) {
+              top: 18px;
+              width: 0%;
+              left: 50%;
+              @include opacity(0);
+              @include transition(background .3s);
+            }
+
+            &:nth-child(2) {
+              @include rotate(45deg);
+            }
+
+             &:nth-child(3) {
+              @include rotate(-45deg);
+            }
+
+             &:nth-child(4) {
+              top: 18px;
+              width: 0%;
+              left: 50%;
+              @include opacity(0);
+              @include transition(background .3s);
+            }
+          }
+        }
+      }
+    }
   }
 }
+
+
+
+// 手機版，側邊menu
+#r_menu_boxs {
+  display: none;
+
+  @include range-width(0, 735px) {
+    display: inline-block;
+  }
+
+  position: fixed;
+  right: -250px;
+  top: 98px;
+  z-index: 125;
+  height: calc(100% - 80px);
+  width: 250px;
+  background-color: rgba(43, 43, 43, 1.00);
+  overflow: auto;
+  @include transition(opacity .3s, right .3s);
+  text-align: left;
+  padding: 15px 0; 
+  @include range-width(0, 450px) {
+    top: 60px;
+    height: calc(100% - 60px);
+  }
+  &.s_menu {
+    right: 0;    
+  }
+
+  > span, > a, > div > a {
+    display: inline-block;
+    width: 100%;
+    padding:20px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    @include transition(all .3s);
+
+    &:hover, &:active {
+      background-color: rgba(29, 29, 29, 1.00);
+    }
+  }
+
+  > span, > a {
+    font-size: 18px;
+    border-bottom: 1px solid rgba(54, 54, 54, 1.00);
+    font-weight: 600;
+  }
+
+  > div > a {
+    font-size: 15px;
+    font-weight: 400px;
+
+    &:last-child {
+      border-bottom: 1px solid rgba(54, 54, 54, 1.00);
+    }
+  }
+  // > span {
+  //   &:before {
+  //     display: inline-block;
+  //     content: '\e902';
+  //     font-family: 'icomoon';
+  //     font-size: 22px;
+  //     margin-right: 10px;
+  //   }
+  // }
+  > div {
+    display: none;
+  }
+
+  > span {
+    &.s {
+      + div {
+        display: block;
+      }
+    }
+  }
+}
+
+#menu_back {
+  display: none;
+
+  @include range-width(0, 1030px) {
+    display: inline-block;
+  }
+
+  position: fixed;
+  left: -500px;
+  top: 98px;
+  z-index: -10;
+  height: calc(100% - 80px);
+  width: 100%;
+  
+  @include range-width(0, 450px) {
+    top: 60px;
+    height: calc(100% - 60px);
+  }
+  @include transition(opacity .4s, left .3s);
+
+  &.s_menu_b {
+    left: 0;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 110;
+  }
+}
+
+
 
 .banner {
   display: inline-block;
@@ -144,23 +360,35 @@ header {
   background-color: rgba(0, 128, 0, 0.2);
 }
 
+
+
+
 .cent {
   display: inline-block;
   width: 100%;
   height: 100%;
   padding: 50px 0; 
 
+  @include range-width(0, 1150px) {
+    padding: 10px 15px;
+  }
+
   .cent_box {
     display: inline-block;
     width: 100%;
     max-width: 1120px;
     @include clearfix();
-    
+
     .cent_list_box {
       display: inline-block;
       width: calc(100% - 325px);
       float: left;
       padding-right: 50px;
+
+      @include range-width(0, 735px) {
+        width: 100%;
+        padding-right: 0;
+      }
 
       .list_title_box, .list_box {
         display: inline-block;
@@ -210,6 +438,10 @@ header {
           border-bottom: 1px solid rgba(215, 215, 215, 1.00);
           @include clearfix();
           @include transition(all .3s);
+
+          @include range-width(0, 830px) {
+            padding: 15px;
+          }
           
           text-align: left;
 
@@ -233,12 +465,20 @@ header {
             width: 120px;
             float: left;
             color: black;
+
+            @include range-width(0, 830px) {
+              width: 100%;
+            }
           }
 
           .type_box {
             display: inline-block;
             width: calc(100% - 120px);
             float: left;
+
+            @include range-width(0, 830px) {
+              width: 100%;
+            }
 
             p {
               display: inline-block;
@@ -261,12 +501,21 @@ header {
 
     .fb_box {
       display: inline-block;
-      width: 325px;
+      width: 100%;
+      max-width: 325px;
       float: left;
       border: 5px solid white;
+
+      @include range-width(0, 735px) {
+        width: 100%;
+        margin-top: 20px;
+      }
     }
   }
 }
+
+
+
 
 footer {
   display: inline-block;
@@ -274,19 +523,49 @@ footer {
   padding: 20px 0;
   background-color: rgba(43, 43, 43, 1.00);
 
+  @include range-width(0, 750px) {
+    padding: 15px;
+  }
+
   .footer_boxs {
     display: inline-block;
     width: 100%;
     max-width: 1120px;
-
-    span {
+    @include clearfix();
+    
+    .copytype {
       display: inline-block;
       width: 100%;
       color: white;
       line-height: 30px;
       font-size: 16px;
+
+      @include range-width(0, 750px) {
+        display: none;
+      }
     }
-  }  
+
+    .m_copytype {
+      display: none;
+
+      @include range-width(0, 750px) {
+        display: inline-block;
+      }
+
+      width: 100%;
+      font-size: 13px;
+      color: white;
+      float: left;
+      text-align: left;
+      line-height: 20px;
+
+      &.m_a {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 10px;
+      }
+    }
+  } 
 }
 
 
