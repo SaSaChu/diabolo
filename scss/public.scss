@@ -278,7 +278,7 @@ header {
   @include transition(opacity .3s, right .3s);
   text-align: left;
   padding: 15px 0; 
-  
+
   @include range-width(0, 450px) {
     top: 67px;
     height: calc(100% - 60px);
@@ -371,26 +371,93 @@ header {
   width: 100%;
   height: 400px;
   background-color: rgba(0, 128, 0, 0.2);
+
+  @include range-width(0, 450px) {
+    height: 200px;
+  }
 }
 
+.cent_banner {
+  display: inline-block;
+  width: 100%;
+  height: 200px;
+  background-image: url(../img/centbg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include range-width(0, 450px) {
+    background-image: url(../img/m_centbg.png);
+  }
+
+  .tag_boxs {
+    display: inline-block;
+    width: 100%;
+    max-width: 1080px;
+    padding: 40px 0;
+    @include clearfix();
+
+    @include range-width(0, 1080px) {
+      padding: 40px 15px;
+    }
+
+    .tag_title {
+      display: inline-block;
+      font-size: 24px;
+      font-weight: 600;
+      float: left;
+      color: white;
+    }
+
+    .tag_all {
+      float: right;
+
+      a {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 14px;
+        color: black;
+        text-decoration: none;
+        margin-right: 5px;
+
+        &:after {
+          display: inline-block;
+          content: '\ea1c';
+          font-family: icomoon;
+          color: rgba(197, 27, 42, 1.00);
+          margin-top: 3px;
+          margin-left: 5px;
+        }
+
+        &:last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 
 .cent {
   display: inline-block;
   width: 100%;
-  height: 100%;
-  padding: 50px 0; 
-
-  @include range-width(0, 1150px) {
-    padding: 10px 15px;
-  }
+  height: 100%;  
 
   .cent_box {
     display: inline-block;
     width: 100%;
     max-width: 1120px;
+    padding: 50px 0; 
     @include clearfix();
+
+    @include range-width(0, 1150px) {
+      padding: 10px 15px;
+    }
+
+    // d
+    border: 1px solid rgba(255, 0, 0, .3);
 
     .cent_list_box {
       display: inline-block;
@@ -411,6 +478,10 @@ header {
       .list_title_box {
         padding: 20px 0;
         @include clearfix();
+
+        @include range-width(0, 450px) {
+          padding: 15px 0;
+        }
         
         span {
           display: inline-block;
@@ -418,6 +489,10 @@ header {
           font-size: 24px;
           color: rgba(197, 27, 42, 1.00);
           font-weight: 600;
+
+          @include range-width(0, 450px) {
+            font-size: 20px;
+          }
         }
 
         a {
@@ -435,6 +510,10 @@ header {
           
           &:hover, &:active {
             background-color: rgba(196, 152, 214, .8);
+          }
+
+          @include range-width(0, 450px) {
+            font-size: 15px;
           }
         }
       }
@@ -523,6 +602,162 @@ header {
         width: 100%;
         margin-top: 20px;
       }
+    }
+  }
+
+  .page_boxs {
+    display: inline-block;
+    width: 100%;
+    max-width: 1080px;
+    background-color: white;
+    @include box-shadow(0 0 10px rgba(136, 136, 136, .2));
+    margin-top: -100px;
+    margin-bottom: 50px;
+
+    @include range-width(0, 1080px) {
+      margin-left: 15px;
+      margin-right: 15px;
+      width: calc(100% - 30px);
+    }
+
+    .page_box {
+      display: inline-block;
+      width: 100%;
+      padding: 25px;
+      margin-bottom: 50px;
+
+      .page_title {
+        display: inline-block;
+        width: 100%;
+        background-color: rgba(19, 172, 167, 1.00);
+        font-size: 18px;
+        color: white;
+        font-weight: 600;
+        padding: 15px 0;
+        -webkit-border-top-left-radius: 3px;
+        -webkit-border-top-right-radius: 3px;
+        -moz-border-radius-topleft: 3px;
+        -moz-border-radius-topright: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+      }
+
+      .people_boxs {
+        display: inline-block;
+        width: 100%;
+        border-right: 1px solid rgba(214, 214, 214, 1.00);
+        border-left: 1px solid rgba(214, 214, 214, 1.00);
+        border-bottom: 1px solid rgba(214, 214, 214, 1.00);
+        @include clearfix();
+        
+        > div {
+          display: inline-block;
+          width: calc(100% / 9);
+          border-right: 1px solid rgba(235, 235, 235, 1.00);
+          float: left;
+
+          @include range-width(0, 855px) {
+            width: 50%;
+            &:nth-child(1) {
+              width: 100%;
+            }
+
+            &:nth-child(n+12) {
+              display: none;
+            }
+          }
+
+          @include range-width(855px) {
+            &:nth-child(9) {
+              border-right: 0;
+            }
+          } 
+
+          &.no_b {
+            border: 0;
+          }
+
+          // &.wl {
+          //   border-right: 1px solid white;
+
+          //   @include range-width(0, 855px) {
+          //     width: 50%;
+          //     &:nth-child(3), &:nth-child(4), &:nth-child(7) {
+          //       .branch {
+          //         background-color: white;
+          //       }
+          //     }
+          //   }
+          // }
+
+          .name, .job_name, .branch {
+            display: inline-block;
+            font-size: 18px;
+            width: 100%;
+          }
+
+          .name, .branch {
+            color: black;
+            height: 70px;
+            line-height:70px;
+          }
+
+          .job_name {
+            color: white;
+            background-color: rgba(172, 172, 172, 1.00);
+            height: 40px;
+            line-height: 40px;
+          }
+
+          .branch {
+            background-color: rgba(235, 235, 235, 1.00);
+          }
+        }
+      }
+
+      .branch_boxs {
+        display: inline-block;
+        width: 100%;
+        border-right: 1px solid rgba(214, 214, 214, 1.00);
+        border-left: 1px solid rgba(214, 214, 214, 1.00);
+        border-bottom: 1px solid rgba(214, 214, 214, 1.00);
+        @include clearfix();
+
+        > div {
+          display: inline-block;
+          width: calc(100% / 9);
+          border-right: 1px solid white;
+          background-color: rgba(235, 235, 235, 1.00);
+          float: left;
+
+          &.no_wl {
+            border: 0;
+          }
+
+          @include range-width(0, 855px) {
+            width: 50%;
+
+            &:nth-child(3), &:nth-child(4), &:nth-child(7), &:nth-child(8) {
+              background-color: white;
+            } 
+            &:nth-child(3), &:nth-child(7) {
+              border-right: 1px solid rgba(235, 235, 235, 1.00);
+            } 
+            &:nth-child(9) {
+              display: none;
+            }
+          }
+
+          .branch {
+            display: inline-block;
+            font-size: 18px;
+            width: 100%;
+            color: black;
+            height: 70px;
+            line-height: 70px;
+          }
+        }
+      } 
     }
   }
 }

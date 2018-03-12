@@ -25,6 +25,34 @@
       "setIdx": 11,
       "setId": 5,
       "iconIdx": 35
+    },
+    {
+      "icon": {
+        "paths": [
+          "M192 128l640 384-640 384z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "play",
+          "player"
+        ],
+        "defaultCode": 59932,
+        "grid": 16
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "play3, player8",
+        "name": "play3",
+        "id": 284,
+        "order": 91,
+        "prevSize": 32,
+        "code": 59932
+      },
+      "setIdx": 13,
+      "setId": 3,
+      "iconIdx": 284
     }
   ],
   "height": 1024,
