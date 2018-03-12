@@ -46,6 +46,10 @@ header {
   border-top: 20px solid rgba(197, 27, 41, 1.00);
   background-color: rgba(255, 255, 255, 1.00);
 
+  @include range-width(0, 450px) {
+    border-top: 10px solid rgba(197, 27, 41, 1.00);
+  }
+
   .top_boxs {
     display: inline-block;
     width: 100%;
@@ -69,9 +73,17 @@ header {
         padding-bottom: 10px;
       }
 
+      @include range-width(0, 450px) {
+        width: 193px;
+      }
+
       img {
         width: 100%;
         max-width: 300px;
+
+        @include range-width(0, 450px) {
+          max-width: 193px;
+        }
       }
     }
 
@@ -266,8 +278,9 @@ header {
   @include transition(opacity .3s, right .3s);
   text-align: left;
   padding: 15px 0; 
+  
   @include range-width(0, 450px) {
-    top: 60px;
+    top: 67px;
     height: calc(100% - 60px);
   }
   &.s_menu {
@@ -339,7 +352,7 @@ header {
   width: 100%;
   
   @include range-width(0, 450px) {
-    top: 60px;
+    top: 67px;
     height: calc(100% - 60px);
   }
   @include transition(opacity .4s, left .3s);
@@ -569,6 +582,63 @@ footer {
 }
 
 
+
+
+#top_btn {
+  display: inline-block;
+  position: absolute;
+  bottom: 120px;
+  right: 25px;
+  width:60px;
+  height:60px;
+  z-index: 25;
+  color: white;
+  cursor: pointer;
+  background-color: rgba(197, 27, 42, 1.00);
+  @include border-radius(30px);
+
+  &:before {
+    display: inline-block;
+    content: '\e911';
+    font-family: icomoon;
+    font-size: 36px;
+    width: 100%;
+    margin-bottom: -5px;
+  }
+  
+  @include range-width(780px, 930px) {
+    bottom: 150px;
+  }
+
+  @include range-width(450px, 780px) {
+    bottom: 200px;
+  }
+
+  @include range-width(0, 450px) {
+    right: 10px;
+    bottom: 200px;
+    width:50px;
+    height:50px;
+    &:before {
+      font-size: 30px;
+    }
+  }
+
+  // @include range-width(1030px, 1500px) {
+  //   bottom: 337px;
+  //   right: 13px;
+  // }
+
+  // @include range-width(1030px, 1175px) {
+  //   bottom: 350px;
+  //   right: 13px;
+  // }
+
+  // @include range-width(0, 1030px) {
+  //   bottom: 115px;
+  //   right: 13px;
+  // }
+}
 
 
 
