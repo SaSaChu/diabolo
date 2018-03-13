@@ -28,11 +28,22 @@ $(function () {
   $('#top_btn').click (function () {
       $('html, body').animate ({ scrollTop: 0 }, 'slow');
   });
+  $('.index-banners').each (function () {
+    var $that = $(this).attr ('data-i', 1);
+    $that.find ('.bg').imgLiquid ({ verticalAlign:'center' });
+    var l = $that.find ('>div>*').length;
+    $that.find ('>a').click (function () {
+      var i = parseInt ($that.attr ('data-i'), 10);
+      $that.attr ('data-i', $(this).hasClass ('left') ? (--i <= 0 ? l : i) : (++i > l ? 1 : i));
+    });
+// left
+// right
+  });
   $('.nc_boxs').each (function () {
     var $that = $(this).attr ('data-i', 1);
     $that.find ('.tab_boxs > a').click (function () {
       $that.attr ('data-i', $(this).index () + 1);
-    })
+    });
   });
 
 });
