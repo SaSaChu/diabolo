@@ -6,11 +6,23 @@
   @include font-smoothing(antialiased);
 }
 
+.icon-aaa_l:before {
+  content: "\e902";
+}
+.icon-aaa_r:before {
+  content: "\e903";
+}
 .icon-ar_l:before {
   content: "\e900";
 }
 .icon-ar_r:before {
   content: "\e901";
+}
+.icon-chevron-left:before {
+  content: "\e90f";
+}
+.icon-chevron-right:before {
+  content: "\e910";
 }
 .icon-chevron-up:before {
   content: "\e911";
