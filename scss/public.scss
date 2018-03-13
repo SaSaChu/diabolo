@@ -385,6 +385,7 @@ header {
   background-repeat: no-repeat;
   background-position: center;
 
+
   @include range-width(0, 450px) {
     height: 100px;
     background-image: url(../img/m_centbg.png);
@@ -397,7 +398,15 @@ header {
     padding: 40px 0;
     @include clearfix();
 
-    @include range-width(450px, 1080px) {
+    &.news_s {
+      padding: 40px 0 0 0;
+
+      @include range-width(0, 1150px) {
+        padding: 40px 15px;
+      }
+    }
+
+    @include range-width(450px, 1150px) {
       padding: 40px 15px;
     }
 
@@ -469,9 +478,6 @@ header {
     @include range-width(0, 1150px) {
       padding: 10px 15px;
     }
-
-    // d
-    border: 1px solid rgba(255, 0, 0, .3);
 
     .cent_list_box {
       display: inline-block;
@@ -615,6 +621,205 @@ header {
       @include range-width(0, 735px) {
         width: 100%;
         margin-top: 20px;
+      }
+    }
+  }
+
+
+  .nc_boxs {
+    display: inline-block;
+    width: 100%;
+    max-width: 1080px;
+    margin-top: -140px;
+    margin-bottom: 50px;
+
+    @include range-width(0, 1150px) {
+      padding: 10px 15px;
+    }
+
+    .tab_boxs {
+      display: inline-block;
+      width: 100%;
+      @include clearfix();
+      
+      a {
+        display: inline-block;
+        width: 120px;
+        float: left;
+        cursor: pointer;
+        background-color: rgba(182, 182, 182, 1.00);
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 12px 0;
+        @include transition(all .3s);
+        margin-right: 10px;
+        -webkit-border-top-left-radius: 3px;
+        -webkit-border-top-right-radius: 3px;
+        -moz-border-radius-topleft: 3px;
+        -moz-border-radius-topright: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        &:hover, &:active, &.ncac {
+          background-color: rgba(190, 24, 37, 1.00);
+        }
+      }
+    }
+
+    .nc_box {
+      display: inline-block;
+      width: 100%;
+      background-color: white;
+      border: 1px solid rgba(215, 215, 215, 1.00);
+
+      a {
+        display: inline-block;
+        cursor: pointer;
+        width: 100%;
+        padding: 25px;
+        border-bottom: 1px solid rgba(215, 215, 215, 1.00);
+        @include clearfix();
+        
+        .al_box {
+          display: inline-block;
+          width: calc(100% - 250px);
+          float: left;
+          text-align: left;
+          padding-right: 20px;
+
+          @include range-width(0, 855px) {
+            width: 100%;
+            padding-right: 0;
+          }
+
+          span {
+            display: inline-block;
+            width: 100%;
+            font-size: 14px;
+            color: black;
+
+            &.acs {
+              font-size: 18px;
+              font-weight: 600;
+              padding-bottom: 10px;
+            }
+          }
+
+          &:hover, &:active {
+            span {
+              &.acs {
+                text-decoration: underline;
+                color: rgba(180, 23, 35, 1.00);
+              } 
+            }
+          }
+        }
+
+        &:hover, &:active {
+          background-color: rgba(235, 235, 235, 1.00);
+        }
+
+        .ar_box {
+          display: inline-block;
+          width: 250px;
+          float: left;
+
+          @include range-width(0, 855px) {
+            width: 100%;
+            padding-top: 20px;
+          }
+
+          img {
+            width: 100%;
+            max-width: 250px;
+
+            @include range-width(0, 855px) {
+              max-width: none;
+            }
+          }
+        }
+      }
+
+      .num_box {
+        display: inline-block;
+        width: 100%;
+        padding: 125px 0 50px 0;
+
+        @include range-width(0, 660px) {
+          padding: 90px 0 50px 0;
+        }
+        
+        .nn {
+          display: inline-block;
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          border: 1px solid rgba(227, 227, 227, 1.00);
+          font-size: 18px;
+          color: rgba(87, 87, 87, 1.00);
+          margin: 0 10px;
+          @include transition(all .3s);
+
+          @include range-width(588px, 660px) {
+            margin: 0 5px;
+          }
+
+          @include range-width(0, 588px) {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 3px;
+            &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+              display: none;
+            } 
+          }
+          
+          &:hover, &:active, &.ncc {
+            color: white;
+            background-color: rgba(194, 194, 194, 1.00);
+          }
+        }
+
+        .an {
+          display: inline-block;
+          cursor: pointer;
+          font-size: 18px;
+          @include clearfix();
+
+          .icon-ar_l, .icon-ar_r {
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            float: left;
+            color: rgba(186, 186, 186, 1.00);
+
+            @include range-width(0, 588px) {
+              width: 30px;
+              height: 30px;
+              line-height: 30px;
+              font-size: 16px;
+            }
+          } 
+
+          .an2 {
+            display: inline-block;
+            padding: 0 20px;
+            height: 40px;
+            line-height: 40px;
+            color: white;
+            background-color: rgba(194, 194, 194, 1.00);
+            float: left;
+
+            @include range-width(0, 588px) {
+              height: 30px;
+              line-height: 30px;
+              padding: 0 10px;
+              font-size: 16px;
+            }
+          }
+        }
       }
     }
   }
