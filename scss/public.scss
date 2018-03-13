@@ -632,9 +632,14 @@ header {
     max-width: 1080px;
     margin-top: -140px;
     margin-bottom: 50px;
+    @include clearfix();
 
     @include range-width(0, 1150px) {
       padding: 10px 15px;
+    }
+
+    @include range-width(0, 450px) {
+      margin-top: -80px;
     }
 
     .tab_boxs {
@@ -741,6 +746,10 @@ header {
         }
       }
 
+      &.nc_s {
+        padding: 25px 20px;
+      }
+
       .num_box {
         display: inline-block;
         width: 100%;
@@ -778,7 +787,7 @@ header {
           
           &:hover, &:active, &.ncc {
             color: white;
-            background-color: rgba(194, 194, 194, 1.00);
+            background-color: rgba(197, 27, 42, 1.00);
           }
         }
 
@@ -803,6 +812,20 @@ header {
             }
           } 
 
+          .icon-ar_l {
+            margin-right: 10px;
+            @include range-width(0, 588px) {
+              margin-right: 3px;
+            }
+          }
+
+          .icon-ar_r {
+            margin-left: 10px;
+            @include range-width(0, 588px) {
+              margin-left: 3px;
+            }
+          }
+
           .an2 {
             display: inline-block;
             padding: 0 20px;
@@ -818,6 +841,69 @@ header {
               padding: 0 10px;
               font-size: 16px;
             }
+          }
+        }
+      }
+
+      .video_boxs {
+        display: inline-block;
+        width: calc(100% / 4 - 10px * 3 / 4);
+        float: left;
+        margin-right: 10px;
+        text-align: left;
+
+        @include range-width(0, 750px) {
+          width: calc(50% - 10px / 2);
+          margin-right: 10px;
+
+          &:nth-child(2n+2) {
+            margin-right: 0;
+          }
+
+          &:nth-child(n+3) {
+            margin-top: 40px;
+          }
+        }
+
+        @include range-width(750px) {
+          &:nth-child(4n+4) {
+            margin-right: 0;
+          }
+
+          &:nth-child(n+5) {
+            margin-top: 50px;
+          }
+        }
+
+        .video_box {
+          display: inline-block;
+          width: 100%;
+
+          img {
+            width: 100%;
+            max-width: 252px;
+
+            @include range-width(0, 750px) {
+              max-width: none;
+            }
+          }
+        }
+
+        a {
+          display: inline-block;
+          cursor: pointer;
+          width: 100%;
+          font-size: 14px;
+          color: rgba(74, 74, 74, 1.00);
+          text-decoration: none;
+          @include transition(all .3s);
+          padding: 10px 0 0 0;
+          background-color: transparent;
+          border-bottom: 0;
+          
+          &:hover, &:active {
+            color: rgba(197, 27, 42, 1.00);
+            text-decoration: underline;
           }
         }
       }
