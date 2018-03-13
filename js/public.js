@@ -28,5 +28,11 @@ $(function () {
   $('#top_btn').click (function () {
       $('html, body').animate ({ scrollTop: 0 }, 'slow');
   });
+  $('.nc_boxs').each (function () {
+    var $that = $(this).attr ('data-i', 1);
+    $that.find ('.tab_boxs > a').click (function () {
+      $that.attr ('data-i', $(this).index () + 1);
+    })
+  });
 
 });

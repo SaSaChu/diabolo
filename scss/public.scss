@@ -620,7 +620,12 @@ header {
 
       @include range-width(0, 735px) {
         width: 100%;
+        max-width: 100%;
         margin-top: 20px;
+        > * {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
       }
     }
   }
@@ -673,7 +678,7 @@ header {
     }
 
     .nc_box {
-      display: inline-block;
+      display: none;
       width: 100%;
       background-color: white;
       border: 1px solid rgba(215, 215, 215, 1.00);
@@ -904,6 +909,21 @@ header {
           &:hover, &:active {
             color: rgba(197, 27, 42, 1.00);
             text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    @for $i from 1 through 3 {
+      &[data-i='#{$i}'] {
+        .tab_boxs a {
+          &:nth-child(#{$i}) {
+            background-color: rgba(190, 24, 37, 1.00);
+          }
+        }
+        .nc_box {
+          &:nth-child(#{$i + 1}) {
+            display: inline-block;
           }
         }
       }
