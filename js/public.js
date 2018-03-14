@@ -85,7 +85,7 @@ $(function () {
     $('.nc_s .video_boxs.a').prev ().click ();
   });
   $blackbg.find ('.fn_ar_r').click (function () {
-    if (!$('.nc_s .video_boxs.a').next ().length)
+    if (!$('.nc_s .video_boxs.a').next ().length || $('.nc_s .video_boxs.a').next ().hasClass ('num_box'))
       $blackbg.removeClass ('s');
     $('.nc_s .video_boxs.a').next ().click ();
   });
