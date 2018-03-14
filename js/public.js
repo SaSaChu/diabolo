@@ -45,5 +45,63 @@ $(function () {
       $that.attr ('data-i', $(this).index () + 1);
     });
   });
+  $('.aa_pic_boxs').each (function () {
+    var $that = $(this);
+    var $s_pic = $that.find ('.s_pic');
+    var $img = $that.find ('.big_pic > img');
+    var $aleft = $that.find ('>a.aleft');
+    var $aright = $that.find ('>a.aright');
 
+    $s_pic.click (function () {
+      var src = $(this).find ('>img').attr ('src');
+      $img.attr ('src', src);
+      $(this).addClass ('a').siblings ().removeClass ('a');
+    }).first ().click ();
+    
+    $aleft.click (function () {
+      var $t = $that.find ('.s_pic.a').prev ();
+      if (!$t.length)
+        $s_pic.last ().click ();
+      else
+        $t.click ();
+    });
+    $aright.click (function () {
+      var $t = $that.find ('.s_pic.a').next ();
+      if (!$t.length)
+        $s_pic.first ().click ();
+      else
+        $t.click ();
+    });
+  });
+  $('.s_pic_boxs .s_pic').imgLiquid ({ verticalAlign:'center' });
+
+  var $blackbg = $('.blackbg');
+  $blackbg.find ('.fn_close').click (function () {
+    $blackbg.removeClass ('s');
+  });
+  $blackbg.find ('.fn_ar_l').click (function () {
+    if (!$('.nc_s .video_boxs.a').prev ().length)
+      $blackbg.removeClass ('s');
+    $('.nc_s .video_boxs.a').prev ().click ();
+  });
+  $blackbg.find ('.fn_ar_r').click (function () {
+    if (!$('.nc_s .video_boxs.a').next ().length)
+      $blackbg.removeClass ('s');
+    $('.nc_s .video_boxs.a').next ().click ();
+  });
+
+  $('.nc_s .video_boxs .photo').each (function () {
+    var $that = $(this);
+    $that.parent ().click (function () {
+      $(this).addClass ('a').siblings ().removeClass ('a');
+      var src = $that.find ('>img').attr ('src');
+      var text = $that.next ().text ();
+      $blackbg.find ('.fn_pic img').attr ('src', src);
+      $blackbg.find ('span:not(:last-child)').text ($(this).index () + 1 + ' of 12');
+      $blackbg.find ('span:last-child').text (text);
+      $blackbg.addClass ('s');
+      console.error ($(this).index () + 1);
+      
+    });
+  });
 });
