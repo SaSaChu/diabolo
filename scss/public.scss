@@ -1002,6 +1002,10 @@ header {
           display: inline-block;
           width: 100%;
 
+          &.photo {
+            cursor: pointer;
+          }
+
           img {
             width: 100%;
             max-width: 252px;
@@ -1538,6 +1542,10 @@ header {
         color: rgba(197, 27, 42, 1.00);
         font-weight: 600;
         padding-bottom: 10px;
+
+        @include range-width(0, 450px) {
+          font-size: 18px;
+        }
       }
 
       p {
@@ -1547,6 +1555,10 @@ header {
         margin: 0;
         font-size: 18px;
         color: rgba(87, 87, 87, 1.00);
+
+        @include range-width(0, 450px) {
+          font-size: 16px;
+        }
       }
     }
 
@@ -1623,6 +1635,34 @@ header {
       color: rgba(59, 59, 59, 1.00);
       font-size: 18px;
       text-align: left;
+
+      @include range-width(0, 450px) {
+        font-size: 16px;
+        line-height: 28px;
+      }
+
+      &.down {
+        border-top: 1px solid rgba(210, 209, 210, 1.00);
+        padding-top: 10px;
+
+        &:before {
+          display: inline-block;
+          content: '\e904';
+          font-family: icomoon;
+          margin-top: 3px;
+          margin-right: 5px;
+        }
+      }
+
+      p {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        color: rgba(29, 81, 125, 1.00);
+        text-decoration: underline;
+        font-size: 18px;
+      }
     }
   }
 

@@ -6,6 +6,9 @@
   @include font-smoothing(antialiased);
 }
 
+.icon-inbox-download:before {
+  content: "\e904";
+}
 .icon-aaa_l:before {
   content: "\e902";
 }
