@@ -1766,6 +1766,104 @@ header {
 }
 
 
+.blackbg {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+
+  .fn_boxs {
+    display: inline-block;
+    width: 100%;
+    max-width: 620px;
+    margin-top: 15%;
+    @include border-radius(3px);
+    background-color: rgba(237, 237, 237, 1.00);
+    padding: 10px;
+    text-align: left;
+    position: relative;
+
+    .fn_pic {
+      display: inline-block;
+      width: 100%;
+
+      img {
+        width: 100%;
+        max-width: 600px;
+      }
+    }
+
+    span {
+      display: inline-block;
+      width: 100%;
+      padding-top: 10px;
+      font-size: 18px;
+      color: rgba(74, 74, 74, 1.00);
+    }
+
+    .fn_ar {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(237, 237, 237, 1.00);
+      position: absolute;
+      cursor: pointer;
+      top: 180px;
+
+      &.fn_ar_l {
+        left: 10px;
+        -webkit-border-top-right-radius: 3px;
+        -webkit-border-bottom-right-radius: 3px;
+        -moz-border-radius-topright: 3px;
+        -moz-border-radius-bottomright: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+
+      &.fn_ar_r {
+        right: 10px;
+        -webkit-border-top-left-radius: 3px;
+        -webkit-border-bottom-left-radius: 3px;
+        -moz-border-radius-topright: 3px;
+        -moz-border-radius-bottomright: 3px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
+
+      &.icon-chevron-right, &.icon-chevron-left {
+        line-height: 30px;
+        text-align: center;
+        font-size: 20px;
+      }
+    }
+
+    .fn_close {
+      display: inline-block;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background-color: rgba(237, 237, 237, 1.00);
+      @include border-radius(30px);
+      border: 1px solid rgba(195, 195, 195, 1.00);
+      
+      &.icon-close {
+        display: inline-block;
+        line-height: 30px;
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
 
 
 footer {
