@@ -36,9 +36,11 @@ $(function () {
       var i = parseInt ($that.attr ('data-i'), 10);
       $that.attr ('data-i', $(this).hasClass ('left') ? (--i <= 0 ? l : i) : (++i > l ? 1 : i));
     });
-// left
-// right
+    setInterval (function () {
+      $that.find ('>a.left').click ();
+    }, 6500);
   });
+
   $('.nc_boxs').each (function () {
     var $that = $(this).attr ('data-i', 1);
     $that.find ('.tab_boxs > a').click (function () {
@@ -103,5 +105,12 @@ $(function () {
       console.error ($(this).index () + 1);
       
     });
+  });
+  $(window).bind("load resize", function(){
+    setTimeout(function() {
+    var w = $('.fb_box').width ();
+      $('.fb_box').html ('<div class="fb-page" data-href="' + $('.fb_box').data ('href') + '" data-tabs="timeline" data-width="' + w + 'px" data-height="765" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ZeusDesignStudio/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ZeusDesignStudio/">宙思設計</a></blockquote></div>');
+      FB.XFBML.parse ();
+    }, 100);
   });
 });
