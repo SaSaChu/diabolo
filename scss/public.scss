@@ -109,6 +109,8 @@ header {
             width: 126px;
             background-color: rgba(197, 27, 41, 1.00);
             margin-left: -30px;
+            z-index: 888;
+            position: absolute;
 
             > a {
               display: block;
@@ -499,14 +501,48 @@ header {
   display: inline-block;
   width: 100%;
   height: 200px;
-  background-image: url(../img/centbg.png);
-  background-repeat: no-repeat;
-  background-position: center;
-
-
+  
   @include range-width(0, 450px) {
     height: 100px;
-    background-image: url(../img/m_centbg.png);
+  }
+  
+  .top_babox {
+    @include range-width(0, 450px) {
+      display: none;
+    }
+
+    display: inline-block;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    top: 117px;
+    left: 0;
+    z-index: -88;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .m_top_babox {
+
+    @include range-width(450px) {
+      display: none;
+    }
+
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 66px;
+    left: 0;
+    z-index: -88;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
   }
 
   .tag_boxs {
@@ -711,7 +747,11 @@ header {
             }
 
             p {
-              display: inline-block;
+              display: -webkit-box;
+              -webkit-box-orient: vertical; 
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+
               width: 100%;
               padding: 0;
               margin: 0;
@@ -821,16 +861,30 @@ header {
             padding-right: 0;
           }
 
+          &.acs_all {
+            width: 100%;
+          }
+
           span {
-            display: inline-block;
+            // display: inline-block;
             width: 100%;
             font-size: 14px;
             color: black;
 
+            display: -webkit-box;
+            -webkit-box-orient: vertical; 
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+
+
             &.acs {
               font-size: 18px;
               font-weight: 600;
-              padding-bottom: 10px;
+
+              display: -webkit-box;
+              -webkit-box-orient: vertical; 
+              -webkit-line-clamp: 1;
+              overflow: hidden;
             }
           }
 
@@ -1362,7 +1416,7 @@ header {
             display: inline-block;
             width: 100%;
             height: 300px;
-            color: rgba(150, 150, 150, 1.00);
+            color: black;
             font-size: 18px;
             background-color: rgba(235, 235, 235, 1.00);
             border: 1px solid rgba(235, 235, 235, 1.00);
@@ -1370,6 +1424,11 @@ header {
             padding: 15px;
             @include border-radius(3px);
             font-size: 18px;
+
+            @include input-placeholder {
+              font-size: 18px;
+              color: rgba(62, 62, 62, .3);
+            }
 
             &:hover, &:active {
               border: 1px solid rgba(245, 41, 62, .5);
@@ -1391,8 +1450,13 @@ header {
             border: 1px solid rgba(235, 235, 235, 1.00);
             outline: 0;
             @include border-radius(3px);
-            color: rgba(150, 150, 150, 1.00);
+            color: black;
             font-size: 18px;
+
+            @include input-placeholder {
+              font-size: 18px;
+              color: rgba(62, 62, 62, .3);
+            }
 
             @include range-width(0, 450px) {
               font-size: 16px;
@@ -1452,12 +1516,12 @@ header {
 
           .code {
             display: inline-block;
-            width: 100px;
-            background-color: rgba(255, 245, 142, 1.00);
+            width: 120px;
+            // background-color: rgba(255, 245, 142, 1.00);
             color: black;
             font-size: 18px;
             @include border-radius(3px);
-            padding: 15px;
+            padding: 10px;
             margin-left: 15px;
 
             @include range-width(0, 585px) {

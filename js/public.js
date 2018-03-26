@@ -75,7 +75,10 @@ $(function () {
         $t.click ();
     });
   });
-  $('.s_pic_boxs .s_pic').imgLiquid ({ verticalAlign:'center' });
+
+  $('.s_pic_boxs .s_pic, .top_babox').imgLiquid ({ verticalAlign:'center' });
+
+  // $(".n_picbox, .pic_full").imgLiquid ();
 
   var $blackbg = $('.blackbg');
   $blackbg.find ('.fn_close').click (function () {
@@ -109,7 +112,7 @@ $(function () {
   $(window).bind("load resize", function(){
     setTimeout(function() {
     var w = $('.fb_box').width ();
-      $('.fb_box').html ('<div class="fb-page" data-href="' + $('.fb_box').data ('href') + '" data-tabs="timeline" data-width="' + w + 'px" data-height="765" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ZeusDesignStudio/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ZeusDesignStudio/">宙思設計</a></blockquote></div>');
+      $('.fb_box').html ('<div class="fb-page" data-href="' + $('.fb_box').data ('href') + '" data-tabs="timeline" data-width="' + w + 'px" data-height="600" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ZeusDesignStudio/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ZeusDesignStudio/">宙思設計</a></blockquote></div>');
       FB.XFBML.parse ();
     }, 100);
   });
