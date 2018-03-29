@@ -1094,6 +1094,14 @@ header {
           padding: 10px 0 0 0;
           background-color: transparent;
           border-bottom: 0;
+
+          @include range-width(0, 750px) {
+            display: -webkit-box;
+            -webkit-box-orient: vertical; 
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            height: auto;
+          }
           
           &:hover, &:active {
             color: rgba(197, 27, 42, 1.00);
@@ -1102,6 +1110,14 @@ header {
 
           &.ph {
             height: 50px;
+
+            @include range-width(0, 750px) {
+              display: -webkit-box;
+              -webkit-box-orient: vertical; 
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+              height: auto;
+            }
           }
         }
       }
